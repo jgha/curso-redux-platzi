@@ -1,0 +1,1 @@
+export const OBTENER_TODOS = 'obtener_usuarios';
