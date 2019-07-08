@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { OBTENER_TODOS, CARGANDO, ERROR } from '../types/usuariosTypes';
+import { OBTENER_TODOS, OBTENER_USUARIO, CARGANDO, ERROR } from '../types/usuariosTypes';
 
 export const ObtenerTodos = () => async (dispatch) => {
     dispatch({
@@ -14,7 +14,25 @@ export const ObtenerTodos = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ERROR,
-            payload: error.message
+            payload: 'Ha ocurrido un error al obtener la información del usuario.'
+        });
+    }
+};
+
+export const ObtenerUsuario = () => async (dispatch) => {
+    dispatch({
+        type: CARGANDO
+    });
+    try {
+        const respuesta = await axios.get('https://jsonplaceholder.typicode.com/users');
+        dispatch({
+            type: OBTENER_USUARIO,
+            payload: respuesta.data
+        });
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            payload: 'Ha ocurrido un error al obtener la información del usuario.'
         });
     }
 };

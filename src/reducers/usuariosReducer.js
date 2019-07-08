@@ -1,7 +1,8 @@
-import { OBTENER_TODOS, CARGANDO, ERROR } from '../types/usuariosTypes';
+import { OBTENER_TODOS, OBTENER_USUARIO, CARGANDO, ERROR } from '../types/usuariosTypes';
 
 const INITIAL_STATE = {
     usuarios: [],
+    usuario: [],
     cargando: false,
     error: '',
 };
@@ -9,8 +10,16 @@ const INITIAL_STATE = {
 export default ( state = INITIAL_STATE, action ) => {
     switch (action.type) {
         case OBTENER_TODOS:
-            return { ...state, usuarios: action.payload, cargando: false };
+            return { 
+                ...state, 
+                usuarios: action.payload, 
+                cargando: false,
+                error: ''
+            };
         
+        case OBTENER_USUARIO:
+                return { ...state, usuario: action.payload, cargando: false };
+            
         case CARGANDO:
             return { ...state, cargando: true };
 

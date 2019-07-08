@@ -1,3 +1,7 @@
-export const OBTENER_TODOS = 'obtener_usuarios';
-export const CARGANDO = 'loading';
-export const ERROR = 'error';
+export const OBTENER_TODOS = 'usuario_obtener_usuarios';
+export const OBTENER_USUARIO = 'usuario_obtener_uno';
+
+export const CARGANDO = 'usuario_loading';
+export const ERROR = 'usuario_error';
+
+

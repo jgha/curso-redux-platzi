@@ -1,11 +1,12 @@
 import React from 'react';
 import '../../styles/error.css';
+import Icon from './Icons';
 
 const ErrorMessage = (props) => {
     return (
         <div className="container">
             <div className="error">
-                Error: <stron>{ props.message ? props.message : ' :( '} </stron>
+                <Icon name="sad" /> { props.message ? props.message : ' :( '}
             </div>
         </div>
     );
